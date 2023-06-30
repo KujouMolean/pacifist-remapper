@@ -24,8 +24,6 @@ public class ApplyAccessWidenerTask extends DefaultTask {
             alibs.add(file.toPath());
         }
 
-        String mcVersion = RemapperPlugin.extension.getVersion();
-
         Optional<File> accessWidener = getProject().getConfigurations().named("accessWidener").get().getFiles().stream().findFirst();
 
         if (!accessWidener.isPresent()) {
@@ -33,12 +31,7 @@ public class ApplyAccessWidenerTask extends DefaultTask {
             return;
         }
 
-        if (!mcVersion.isEmpty()) {
-            MojangSpigotAccessWidenerRemapper.remap(accessWidener.get().toPath(), RemapperPlugin.mappingsDir, mcVersion, alibs);
-        } else {
-            System.out.println("Mappings not found! Applying access wideners without mappings");
-            applyAccessWidenersWithoutMaps(accessWidener.get(), alibs);
-        }
+        applyAccessWidenersWithoutMaps(accessWidener.get(), alibs);
     }
 
     private void applyAccessWidenersWithoutMaps(File accessWidener, List<Path> libs) {
