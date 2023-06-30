@@ -32,8 +32,8 @@ shadowJar {
 gradlePlugin {
     plugins {
         pacifistRemapper {
-            id = "io.github.rancraftplayz.remapper"
-            displayName = 'Pacifist Remapper'
+            id = "io.github.rancraftplayz.remapper-modified"
+            displayName = 'Pacifist Remapper Modified'
             description = 'This plugin automates the remapping process for spigot'
             implementationClass = "io.github.rancraftplayz.remapper.RemapperPlugin"
         }

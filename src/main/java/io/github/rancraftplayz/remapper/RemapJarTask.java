@@ -1,6 +1,6 @@
 package io.github.rancraftplayz.remapper;
 
-import me.rancraftplayz.mappingsconverter.MojangSpigotRemapper;
+import me.rancraftplayz.mappingsconverter.MojangSpigotRemapperModified;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.tasks.TaskAction;
 import org.gradle.api.tasks.bundling.AbstractArchiveTask;
@@ -47,7 +47,7 @@ public class RemapJarTask extends DefaultTask {
         }
 
         if (!mcVersion.isEmpty()) {
-            MojangSpigotRemapper.remapAll(inputJar.toPath(), RemapperPlugin.mappingsDir, mcVersion, libs, accessWidenerPath, alibs);
+            MojangSpigotRemapperModified.remapAll(inputJar.toPath(), RemapperPlugin.mappingsDir, mcVersion, libs, accessWidenerPath, alibs);
         } else {
             System.out.println("Mappings not found!");
         }
